@@ -1,1 +1,6 @@
-Stuff
+for i in {0..10000..1000}
+  do
+   python classifier1.py --starting_rank $i --ending_rank $((i+1000)) --model_name modelf --previous_scores scores.txt
+   python classifier2.py --starting_rank $i --ending_rank $((i+1000)) --model_name modelf --previous_scores scores.txt
+   python classifier3.py --starting_rank $i --ending_rank $((i+1000)) --model_name modelf --previous_scores scores.txt
+  done
