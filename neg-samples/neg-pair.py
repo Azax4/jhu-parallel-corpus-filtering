@@ -1,4 +1,4 @@
-#neg samples based on monolingual corpora
+#negative samples based on monolingual corpora
 
 import numpy as np
 import argparse
