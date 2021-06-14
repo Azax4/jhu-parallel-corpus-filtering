@@ -121,11 +121,15 @@ model = NeuralNetClassifier(
 )
 
 #training the model
-for i in range(0,len(X[:2])):
+for i in range(0,len(X)):
     X_t = torch.FloatTensor(np.concatenate((endict[int(X[i].split('|')[0])],psdict[int(X[i].split('|')[1])]), axis = None).reshape(1,-1))
     y_t = torch.tensor(np.array(y[i]).reshape(1,-1))
     model.fit(X_t,y_t[0])
 
+try:
+    pickle.dump(model, open(args.model_name,"wb"))
+except:
+    c = 0
 
 f = open(args.current_scores,"w")
 for i in range(len(psdict)):
